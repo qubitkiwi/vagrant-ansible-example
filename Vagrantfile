@@ -12,7 +12,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     end
 
     config.vm.network "private_network", ip: "192.168.56.46"
-    config.vm.synced_folder ".", "/vagrant", type: "rsync", rsync__exclude: [".git/"]
+    config.vm.synced_folder ".", "/vagrant/", type: "rsync", rsync__exclude: [".git/"]
 
     config.vm.provision "shell", inline: <<-SHELL
         export DEBIAN_FRONTED=noninteractive
@@ -23,5 +23,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         sudo add-apt-repository --yes --update ppa:ansible/ansible
         sudo apt install -y ansible
         sudo pip3 install docker
+        sudo bash
+        echo "localhost" >> /etc/ansible/hosts
+        exit
     SHELL
 end

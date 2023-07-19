@@ -1,2 +1,0 @@
-serverspec_base_path: "/tmp"
-serverspec_path: "{{ serverspec_base_path }}/serverspec_sample"

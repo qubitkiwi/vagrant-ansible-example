@@ -1,10 +1,8 @@
 ---
-- hosts: webservers
+- hosts: localhost
   become: yes
   connection: local
   roles:
-    - common
-    - nginx
-#    - serverspec
-#    - serverspec_sample
-#    - jenkins
+    # - nginx
+    - docker-install
+    - docker-registry
